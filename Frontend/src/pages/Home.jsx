@@ -9,7 +9,7 @@ const Home = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await axios.get('https://www.googleapis.com/books/v1/volumes?q=flowers&filter=free-ebooks&key=AIzaSyDxmaIz5cleUAv8RDnzmNvOrDls-SfYF9o')
+        const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=flowers&filter=free-ebooks&key=${process.env.VITE_GOOGLE_BOOKS_API_KEY}`)
         setBooks(response.data.items)
         console.log(response.data.items)
       } catch (error) {
